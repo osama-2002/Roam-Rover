@@ -100,6 +100,83 @@
         font-size: 12px;
         color: #fff;
     }
+
+    
+    main {
+    color: #333;
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.travel-post,
+.add-post-form {
+    width: 90%;
+    max-width: 600px;
+}
+
+.travel-post {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.travel-post h2 {
+    color: #008080;
+}
+
+.add-post-form {
+    background-color: #f0f8f8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.add-post-form h2 {
+    color: #008080;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+input,
+textarea {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #008080;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #006666;
+}
+
+
   </style>
 </head>
 <body>
@@ -119,8 +196,30 @@
   </header>
 
   <main>
+    <section class="travel-post">
+        <h2>Exploring Paradise Island</h2>
+        <p>Welcome to Paradise Island, a hidden gem in the middle of the ocean. Crystal-clear waters, pristine beaches, and vibrant marine life await you. Don't miss the chance to experience the ultimate tropical getaway!</p>
+    </section>
 
-  </main>
+    <section class="travel-post">
+        <h2>Mountain Majesty</h2>
+        <p>Embark on a journey to the majestic mountains where adventure meets tranquility. Hike through breathtaking landscapes, breathe in the fresh mountain air, and witness awe-inspiring views that will leave you speechless.</p>
+    </section>
+
+    <section class="add-post-form">
+        <h2>Add Your Travel Post</h2>
+        <form>
+            <label for="postTitle">Title:</label>
+            <input type="text" id="postTitle" name="postTitle" required>
+
+            <label for="postContent">Post Content:</label>
+            <textarea id="postContent" name="postContent" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</main>
+
   
   <footer>
     <div class="copyright">

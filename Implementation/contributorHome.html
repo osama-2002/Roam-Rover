@@ -83,6 +83,66 @@
         margin-top: 5%;
     }
 
+    h3 {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 24px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    li {
+      width: 250px;
+      padding: 15px;
+      margin: 15px;
+      background-color: #ccffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+      text-align: center;
+      font-size: 18px;
+      overflow: hidden;
+    }
+    li:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      background-color: #b3ffff;
+    }
+    .destination-link {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+    .destination-icon {
+    width: 100px;
+    height: 100px;
+    background-color: #ccffff;
+    border-radius: 10px;
+    margin-bottom: 10px; 
+    }
+    .destination-icon img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+    .destination-link li {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
     footer {
         background-color: #008080;
         color: #fff;
@@ -119,7 +179,33 @@
   </header>
 
   <main>
-
+    <h3>Destinations you contributed to: </h3>
+    <ul>
+        <li>
+          <a href="paris.html" class="destination-link" target="_blank">
+            <div class="destination-icon">
+              <img src="assets/paris.jpg" alt="Paris">
+            </div>
+            <span>Paris, France</span>
+          </a>
+        </li>
+        <li>
+          <a href="tokyo.html" class="destination-link" target="_blank">
+            <div class="destination-icon">
+              <img src="assets/tokyo.jpg" alt="Tokyo">
+            </div>
+            <span>Tokyo, Japan</span>
+          </a>
+        </li>
+        <li>
+          <a href="newYork.html" class="destination-link" target="_blank">
+            <div class="destination-icon">
+              <img src="assets/new york.jpg" alt="New York">
+            </div>
+            <span>New York City, USA</span>
+          </a>
+        </li>
+      </ul>
   </main>
   
   <footer>
