@@ -181,7 +181,11 @@
     .action-button:hover {
         background-color: #e0eaed;
     }
-    
+    .action-button.add-post-button {
+        font-size: 1.1rem; 
+        margin-top: 30px;
+        margin-left: 30px;
+    }
     .like-button.active {
         background-color: #008080;
         color: #fff;
@@ -272,8 +276,6 @@
             <p>Paris offers excellent mobile and internet connectivity. You'll find free Wi-Fi hotspots in many public areas, cafes, and hotels.</p>
             <p>If you need a local SIM card for your phone, you can easily purchase one from major mobile providers. Staying connected in Paris is convenient and affordable.</p>
         </div>
-    
-        <a href="bookings.html" target="_blank" class="booking-button">Book your Paris trip now!</a>
     </div>
 
     <div class="community-section">
@@ -304,6 +306,15 @@
         </div>
     </div>
 
+    <button class="action-button add-post-button" onclick="showPostForm()">Add New Post</button>
+
+    <form id="postForm" style="display: none;">
+        <label for="postContent">Post Content:</label>
+        <textarea id="postContent" rows="4" cols="50" required></textarea>
+        <br>
+        <button class="action-button" onclick="addNewPost()">Submit</button>
+    </form>
+    
   </main>
   
   <footer>
@@ -335,6 +346,56 @@
 
     function toggleLike(button) {
         button.classList.toggle('active');
+    }
+
+
+    // Function to show the post form
+    function showPostForm() {
+        var postForm = document.getElementById('postForm');
+        var addPostButton = document.querySelector('.add-post-button');
+
+        postForm.style.display = 'block';
+        addPostButton.style.display = 'none';
+    }
+
+    // Function to add a new post
+    function addNewPost() {
+        var postContent = document.getElementById('postContent').value;
+
+        if (postContent.trim() !== '') {
+            // Create a new post element
+            var newPost = document.createElement('div');
+            newPost.classList.add('community-post');
+
+            // Add post content
+            newPost.innerHTML = `
+                <span class="post-author">New User:</span>
+                <div class="post-content">
+                    <p>${postContent}</p>
+                </div>
+                <span class="post-date">Posted on ${getCurrentDate()}</span>
+                <div class="post-actions">
+                    <button class="action-button like-button" onclick="toggleLike(this)">Like</button>
+                    <button class="action-button">Comment</button>
+                    <button class="action-button">Share</button>
+                </div>
+            `;
+
+            // Append the new post to the community section
+            var communitySection = document.querySelector('.community-section');
+            communitySection.appendChild(newPost);
+
+            // Hide the form after submission
+            var postForm = document.getElementById('postForm');
+            postForm.style.display = 'none';
+
+            // Show the "Add New Post" button again
+            var addPostButton = document.querySelector('.add-post-button');
+            addPostButton.style.display = 'block';
+
+            // Clear the textarea
+            document.getElementById('postContent').value = '';
+        }
     }
 
     // Function to get the current date in the format "Month Day, Year"

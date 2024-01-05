@@ -181,7 +181,11 @@
     .action-button:hover {
         background-color: #e0eaed;
     }
-    
+    .action-button.add-post-button {
+        font-size: 1.1rem; 
+        margin-top: 30px;
+        margin-left: 30px;
+    }
     .like-button.active {
         background-color: #008080;
         color: #fff;
@@ -246,63 +250,88 @@
         </ul>
     
         <div class="tab-content active">
-            <h2>Welcome to Paris!</h2>
-            <img src="assets/paris.jpg" alt="Paris Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
-            <p>Paris is the capital of France and one of the most iconic cities in the world. It's known for its romantic atmosphere, historical landmarks, world-class museums, and vibrant cultural scene.</p>
-            <p>Explore the city's arrondissements, stroll along the Seine River, climb the Eiffel Tower, visit the Louvre Museum, and indulge in delicious French pastries. Paris has something to offer every visitor!</p>
+          <h2>Welcome to New York City!</h2>
+          <img src="assets/new york.jpg" alt="New York Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
+          <p>New York City, the city that never sleeps! Explore iconic landmarks such as Times Square, Central Park, and the Statue of Liberty. Dive into the vibrant culture, entertainment, and diverse neighborhoods.</p>
+          <p>Whether you're a foodie, art lover, or adventure seeker, New York has something for everyone. Experience Broadway shows, world-class museums, and the energy of the bustling streets.</p>
         </div>
-    
+
         <div class="tab-content">
-            <h2>Parisian Cuisine: A Culinary Delight</h2>
-            <img src="assets/cuisine.jpg" alt="Cuisine Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
-            <p>From traditional bistros to Michelin-starred restaurants, Paris is a paradise for food lovers. Discover the city's iconic dishes like croissants, baguettes, crêpes, escargots, steak frites, and coq au vin.</p>
-            <p>Don't forget to indulge in Parisian desserts like macarons, éclairs, tarte Tatin, and crème brûlée. Pair your meals with fine French wines and experience the art of Parisian dining.</p>
+          <h2>Diverse Cuisine in New York City</h2>
+          <img src="assets/cuisine_newyork.jpg" alt="Cuisine Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
+          <p>Indulge in the diverse culinary scene of New York City. From classic New York-style pizza to international cuisine, the city offers a gastronomic adventure. Explore food markets, trendy cafes, and Michelin-starred restaurants.</p>
+          <p>Don't miss trying a hot dog from a street vendor or enjoying a slice of cheesecake in this food lover's paradise.</p>
         </div>
-    
+
         <div class="tab-content">
-            <h2>Getting Around Paris: Easy and Efficient</h2>
-            <img src="assets/transportation.jpg" alt="Transportation Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
-            <p>Paris has an extensive and efficient public transportation system, including the Métro (subway), buses, trams, and RER trains. You can easily navigate the city using these options.</p>
-            <p>Taxis are also readily available, and there are bike-sharing programs for exploring the city on two wheels. Paris is also a very walkable city, allowing you to soak up its charm at your own pace.</p>
+          <h2>Getting Around in New York City</h2>
+          <img src="assets/transportation_newyork.jpg" alt="Transportation Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
+          <p>Navigate the bustling streets of New York City using its extensive transportation network. Hop on the iconic yellow cabs, ride the efficient subway system, or take a scenic stroll through neighborhoods.</p>
+          <p>Explore the unique character of each borough and enjoy the convenience of public transportation for your New York adventure.</p>
         </div>
-    
+
         <div class="tab-content">
-            <h2>Staying Connected in Paris</h2>
-            <img src="assets/telecommunication.jpg" alt="Telecommunication Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
-            <p>Paris offers excellent mobile and internet connectivity. You'll find free Wi-Fi hotspots in many public areas, cafes, and hotels.</p>
-            <p>If you need a local SIM card for your phone, you can easily purchase one from major mobile providers. Staying connected in Paris is convenient and affordable.</p>
+          <h2>Staying Connected in New York</h2>
+          <img src="assets/telecommunication_newyork.jpg" alt="Telecommunication Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
+          <p>Stay connected while exploring the city that never sleeps. New York City provides widespread Wi-Fi coverage in public areas, parks, and cafes. Purchase a local SIM card for your phone for seamless communication during your stay.</p>
+          <p>Enjoy the connectivity and capture every moment of your New York adventure.</p>
         </div>
-    
-        <a href="bookings.html" target="_blank" class="booking-button">Book your Paris trip now!</a>
     </div>
 
     <div class="community-section">
-        <h2>Community Posts about Paris</h2>
-        <div class="community-post">
-            <span class="post-author">User123:</span>
-            <div class="post-content">
-                <p>Just had the most amazing croissants at a local bakery in Paris! Highly recommend trying them.</p>
-            </div>
-            <span class="post-date">Posted on January 3, 2024</span>
-            <div class="post-actions">
-                <button class="action-button like-button" onclick="toggleLike(this)">Like</button>
-                <button class="action-button">Comment</button>
-                <button class="action-button">Share</button>
-            </div>
-        </div>
-        <div class="community-post">
-            <span class="post-author">Traveler456:</span>
-            <div class="post-content">
-                <p>The view from the top of the Eiffel Tower is breathtaking. Make sure to visit during sunset!</p>
-            </div>
-            <span class="post-date">Posted on January 2, 2024</span>
-            <div class="post-actions">
-                <button class="action-button like-button" onclick="toggleLike(this)">Like</button>
-                <button class="action-button">Comment</button>
-                <button class="action-button">Share</button>
-            </div>
-        </div>
-    </div>
+      <h2>Community Posts about New York</h2>
+
+      <!-- Post 1 -->
+      <div class="community-post">
+          <span class="post-author">NYExplorer123:</span>
+          <div class="post-content">
+              <p>Central Park is a true urban oasis in the heart of New York City. Enjoyed a relaxing day surrounded by nature and iconic city views.</p>
+          </div>
+          <span class="post-date">Posted on January 5, 2024</span>
+          <div class="post-actions">
+              <button class="action-button like-button" onclick="toggleLike(this)">Like</button>
+              <button class="action-button">Comment</button>
+              <button class="action-button">Share</button>
+          </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="community-post">
+          <span class="post-author">FoodieInNYC456:</span>
+          <div class="post-content">
+              <p>Explored the diverse culinary scene in New York. From street food to fine dining, the options are endless!</p>
+          </div>
+          <span class="post-date">Posted on January 4, 2024</span>
+          <div class="post-actions">
+              <button class="action-button like-button" onclick="toggleLike(this)">Like</button>
+              <button class="action-button">Comment</button>
+              <button class="action-button">Share</button>
+          </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="community-post">
+          <span class="post-author">NightSkyline789:</span>
+          <div class="post-content">
+              <p>Witnessed the breathtaking New York City skyline at night. The city that never sleeps truly comes alive when the lights turn on!</p>
+          </div>
+          <span class="post-date">Posted on January 3, 2024</span>
+          <div class="post-actions">
+              <button class="action-button like-button" onclick="toggleLike(this)">Like</button>
+              <button class="action-button">Comment</button>
+              <button class="action-button">Share</button>
+          </div>
+      </div>
+  </div>
+
+    <button class="action-button add-post-button" onclick="showPostForm()">Add New Post</button>
+
+    <form id="postForm" style="display: none;">
+        <label for="postContent">Post Content:</label>
+        <textarea id="postContent" rows="4" cols="50" required></textarea>
+        <br>
+        <button class="action-button" onclick="addNewPost()">Submit</button>
+    </form>
 
   </main>
   
@@ -335,6 +364,56 @@
 
     function toggleLike(button) {
         button.classList.toggle('active');
+    }
+
+
+    // Function to show the post form
+    function showPostForm() {
+        var postForm = document.getElementById('postForm');
+        var addPostButton = document.querySelector('.add-post-button');
+
+        postForm.style.display = 'block';
+        addPostButton.style.display = 'none';
+    }
+
+    // Function to add a new post
+    function addNewPost() {
+        var postContent = document.getElementById('postContent').value;
+
+        if (postContent.trim() !== '') {
+            // Create a new post element
+            var newPost = document.createElement('div');
+            newPost.classList.add('community-post');
+
+            // Add post content
+            newPost.innerHTML = `
+                <span class="post-author">New User:</span>
+                <div class="post-content">
+                    <p>${postContent}</p>
+                </div>
+                <span class="post-date">Posted on ${getCurrentDate()}</span>
+                <div class="post-actions">
+                    <button class="action-button like-button" onclick="toggleLike(this)">Like</button>
+                    <button class="action-button">Comment</button>
+                    <button class="action-button">Share</button>
+                </div>
+            `;
+
+            // Append the new post to the community section
+            var communitySection = document.querySelector('.community-section');
+            communitySection.appendChild(newPost);
+
+            // Hide the form after submission
+            var postForm = document.getElementById('postForm');
+            postForm.style.display = 'none';
+
+            // Show the "Add New Post" button again
+            var addPostButton = document.querySelector('.add-post-button');
+            addPostButton.style.display = 'block';
+
+            // Clear the textarea
+            document.getElementById('postContent').value = '';
+        }
     }
 
     // Function to get the current date in the format "Month Day, Year"
