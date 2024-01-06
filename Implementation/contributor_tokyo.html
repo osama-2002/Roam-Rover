@@ -222,6 +222,49 @@
     form label {
         margin-bottom: 5px;
     }
+    .edit-button {
+        display: block;
+            background-color: #008080;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+    }
+    .edit-button:hover {
+        background-color: #006666;
+    }
+    .editable {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .editable input,
+    .editable textarea {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    .edit-controls {
+        display: none;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    .save-button {
+        background-color: #008080;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+    }
+    .save-button:hover {
+        background-color: #006666;
+    }
     </style>
 </head>
 <body>
@@ -237,11 +280,12 @@
       <a href="index.html">Logout</a>
       <a href="#">Settings</a>
     </div>
-    <img src="assets/traveler.jpg" alt="User Profile" style="width: 42px; height: 42px; border-radius: 50%;">
+    <img src="assets/contributor.jpg" alt="User Profile" style="width: 42px; height: 42px; border-radius: 50%;">
   </header>
 
   <main>
     <div class="tab-container">
+        <button class="edit-button" onclick="enableEditing()">Edit</button>
         <ul class="tabs">
             <li class="tab active" onclick="changeTab(0)">General Info</li>
             <li class="tab" onclick="changeTab(1)">Cuisine</li>
@@ -249,32 +293,44 @@
             <li class="tab" onclick="changeTab(3)">Telecommunication</li>
         </ul>
     
-        <div class="tab-content active">
-          <h2>Welcome to Tokyo!</h2>
-          <img src="assets/tokyo.jpg" alt="Tokyo Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
-          <p>Tokyo is the dynamic capital city of Japan, known for its cutting-edge technology, traditional culture, and bustling urban life. Explore the neon-lit streets, visit ancient temples, and immerse yourself in the vibrant atmosphere of Tokyo.</p>
-          <p>With a perfect blend of modern skyscrapers and historic landmarks, Tokyo offers a unique experience for every traveler.</p>
+        <div class="tab-content active editable" data-index="0">
+            <div class="edit-controls">
+                <button class="save-button" onclick="saveChanges(0)">Save</button>
+            </div>
+            <h2>Welcome to Tokyo!</h2>
+            <img src="assets/tokyo.jpg" alt="Tokyo Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
+            <p>Tokyo is the dynamic capital city of Japan, known for its cutting-edge technology, traditional culture, and bustling urban life. Explore the neon-lit streets, visit ancient temples, and immerse yourself in the vibrant atmosphere of Tokyo.</p>
+            <p>With a perfect blend of modern skyscrapers and historic landmarks, Tokyo offers a unique experience for every traveler.</p>
         </div>
 
-        <div class="tab-content">
-          <h2>Tokyo's Culinary Delights</h2>
-          <img src="assets/tokyo_cuisine.jpg" alt="Tokyo Cuisine Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
-          <p>Indulge in Tokyo's diverse culinary scene, featuring sushi, ramen, tempura, and more. From Michelin-starred restaurants to hidden izakayas, Tokyo is a paradise for food enthusiasts.</p>
-          <p>Don't miss the chance to explore the Tsukiji Fish Market and taste authentic Japanese flavors during your visit to Tokyo.</p>
+        <div class="tab-content editable" data-index="1">
+            <div class="edit-controls">
+                <button class="save-button" onclick="saveChanges(1)">Save</button>
+            </div>
+            <h2>Tokyo's Culinary Delights</h2>
+            <img src="assets/tokyo_cuisine.jpg" alt="Tokyo Cuisine Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
+            <p>Indulge in Tokyo's diverse culinary scene, featuring sushi, ramen, tempura, and more. From Michelin-starred restaurants to hidden izakayas, Tokyo is a paradise for food enthusiasts.</p>
+            <p>Don't miss the chance to explore the Tsukiji Fish Market and taste authentic Japanese flavors during your visit to Tokyo.</p>
         </div>
 
-        <div class="tab-content">
-          <h2>Getting Around Tokyo</h2>
-          <img src="assets/tokyo_transportation.jpg" alt="Tokyo Transportation Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
-          <p>Navigate Tokyo's efficient transportation system, including the extensive subway network, buses, and iconic bullet trains. Experience the convenience of getting around this bustling city with ease.</p>
-          <p>Whether you choose to explore by train, bus, or on foot, Tokyo's transportation options make it accessible for every traveler.</p>
+        <div class="tab-content editable" data-index="2">
+            <div class="edit-controls">
+                <button class="save-button" onclick="saveChanges(2)">Save</button>
+            </div>
+            <h2>Getting Around Tokyo</h2>
+            <img src="assets/tokyo_transportation.jpg" alt="Tokyo Transportation Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
+            <p>Navigate Tokyo's efficient transportation system, including the extensive subway network, buses, and iconic bullet trains. Experience the convenience of getting around this bustling city with ease.</p>
+            <p>Whether you choose to explore by train, bus, or on foot, Tokyo's transportation options make it accessible for every traveler.</p>
         </div>
 
-        <div class="tab-content">
-          <h2>Staying Connected in Tokyo</h2>
-          <img src="assets/tokyo_telecommunication.jpg" alt="Tokyo Telecommunication Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
-          <p>Stay connected in Tokyo with reliable mobile and internet services. Discover Wi-Fi hotspots throughout the city and easily obtain a local SIM card for seamless communication during your stay.</p>
-          <p>Explore Tokyo with the convenience of staying connected, whether you're navigating the streets or sharing your experiences with friends and family.</p>
+        <div class="tab-content editable" data-index="3">
+            <div class="edit-controls">
+                <button class="save-button" onclick="saveChanges(3)">Save</button>
+            </div>
+            <h2>Staying Connected in Tokyo</h2>
+            <img src="assets/tokyo_telecommunication.jpg" alt="Tokyo Telecommunication Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
+            <p>Stay connected in Tokyo with reliable mobile and internet services. Discover Wi-Fi hotspots throughout the city and easily obtain a local SIM card for seamless communication during your stay.</p>
+            <p>Explore Tokyo with the convenience of staying connected, whether you're navigating the streets or sharing your experiences with friends and family.</p>
         </div>
     
     </div>
@@ -344,20 +400,20 @@
 
   <script>
     function changeTab(index) {
-        var tabs = document.querySelectorAll('.tab');
-        var tabContents = document.querySelectorAll('.tab-content');
+    var tabs = document.querySelectorAll('.tab');
+    var tabContents = document.querySelectorAll('.tab-content');
 
-        tabContents.forEach(function (content) {
-            content.style.display = 'none';
-        });
+    tabContents.forEach(function (content) {
+        content.style.display = 'none';
+    });
 
-        tabs.forEach(function (tab) {
-            tab.classList.remove('active');
-        });
+    tabs.forEach(function (tab) {
+        tab.classList.remove('active');
+    });
 
-        tabContents[index].style.display = 'block';
+    tabContents[index].style.display = 'block';
 
-        tabs[index].classList.add('active');
+    tabs[index].classList.add('active');
     }
 
     function toggleLike(button) {
@@ -372,16 +428,13 @@
         addPostButton.style.display = 'none';
     }
 
-    // Function to add a new post
     function addNewPost() {
         var postContent = document.getElementById('postContent').value;
 
         if (postContent.trim() !== '') {
-            // Create a new post element
             var newPost = document.createElement('div');
             newPost.classList.add('community-post');
 
-            // Add post content
             newPost.innerHTML = `
                 <span class="post-author">New User:</span>
                 <div class="post-content">
@@ -395,30 +448,57 @@
                 </div>
             `;
 
-            // Append the new post to the community section
             var communitySection = document.querySelector('.community-section');
             communitySection.appendChild(newPost);
 
-            // Hide the form after submission
             var postForm = document.getElementById('postForm');
             postForm.style.display = 'none';
 
-            // Show the "Add New Post" button again
             var addPostButton = document.querySelector('.add-post-button');
             addPostButton.style.display = 'block';
 
-            // Clear the textarea
             document.getElementById('postContent').value = '';
         }
     }
 
-    // Function to get the current date in the format "Month Day, Year"
     function getCurrentDate() {
         var options = { year: 'numeric', month: 'long', day: 'numeric' };
         return new Date().toLocaleDateString('en-US', options);
     }
 
+    function enableEditing() {
+        var editableItems = document.querySelectorAll('.editable');
+        editableItems.forEach(function (item) {
+            var content = item.innerHTML;
+            var input = document.createElement('textarea');
+            input.value = content;
+            var controls = document.createElement('div');
+            controls.classList.add('edit-controls');
+            var saveButton = document.createElement('button');
+            saveButton.classList.add('save-button');
+            saveButton.textContent = 'Save';
+            saveButton.onclick = function () {
+                saveChanges(item.dataset.index);
+            };
+            controls.appendChild(saveButton);
+            item.innerHTML = '';
+            item.appendChild(input);
+            item.appendChild(controls);
 
+            controls.style.display = 'flex';
+        });
+    }
+
+    function saveChanges(index) {
+        var editableItems = document.querySelectorAll('.editable');
+        var editedContent = editableItems[index].querySelector('textarea').value;
+        editableItems[index].innerHTML = editedContent;
+
+        var editControls = editableItems[index].querySelector('.edit-controls');
+        if (editControls) {
+            editControls.style.display = 'none';
+        }
+    }
   </script>
 
 </body>

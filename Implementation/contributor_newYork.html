@@ -222,6 +222,49 @@
     form label {
         margin-bottom: 5px;
     }   
+    .edit-button {
+            display: block;
+                background-color: #008080;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.2s ease-in-out;
+            }
+            .edit-button:hover {
+                background-color: #006666;
+            }
+            .editable {
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            .editable input,
+            .editable textarea {
+                width: 100%;
+                padding: 5px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+            .edit-controls {
+                display: none;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+            .save-button {
+                background-color: #008080;
+                color: #fff;
+                padding: 5px 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.2s ease-in-out;
+            }
+            .save-button:hover {
+                background-color: #006666;
+            }
     </style>
 </head>
 <body>
@@ -237,11 +280,12 @@
       <a href="index.html">Logout</a>
       <a href="#">Settings</a>
     </div>
-    <img src="assets/traveler.jpg" alt="User Profile" style="width: 42px; height: 42px; border-radius: 50%;">
+    <img src="assets/contributor.jpg" alt="User Profile" style="width: 42px; height: 42px; border-radius: 50%;">
   </header>
 
   <main>
     <div class="tab-container">
+        <button class="edit-button" onclick="enableEditing()">Edit</button>
         <ul class="tabs">
             <li class="tab active" onclick="changeTab(0)">General Info</li>
             <li class="tab" onclick="changeTab(1)">Cuisine</li>
@@ -249,32 +293,44 @@
             <li class="tab" onclick="changeTab(3)">Telecommunication</li>
         </ul>
     
-        <div class="tab-content active">
-          <h2>Welcome to New York City!</h2>
-          <img src="assets/new york.jpg" alt="New York Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
-          <p>New York City, the city that never sleeps! Explore iconic landmarks such as Times Square, Central Park, and the Statue of Liberty. Dive into the vibrant culture, entertainment, and diverse neighborhoods.</p>
-          <p>Whether you're a foodie, art lover, or adventure seeker, New York has something for everyone. Experience Broadway shows, world-class museums, and the energy of the bustling streets.</p>
+        <div class="tab-content active editable" data-index="0">
+            <div class="edit-controls">
+                <button class="save-button" onclick="saveChanges(0)">Save</button>
+            </div>
+            <h2>Welcome to New York City!</h2>
+            <img src="assets/new york.jpg" alt="New York Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
+            <p>New York City, the city that never sleeps! Explore iconic landmarks such as Times Square, Central Park, and the Statue of Liberty. Dive into the vibrant culture, entertainment, and diverse neighborhoods.</p>
+            <p>Whether you're a foodie, art lover, or adventure seeker, New York has something for everyone. Experience Broadway shows, world-class museums, and the energy of the bustling streets.</p>
         </div>
 
-        <div class="tab-content">
-          <h2>Diverse Cuisine in New York City</h2>
-          <img src="assets/cuisine_newyork.jpg" alt="Cuisine Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
-          <p>Indulge in the diverse culinary scene of New York City. From classic New York-style pizza to international cuisine, the city offers a gastronomic adventure. Explore food markets, trendy cafes, and Michelin-starred restaurants.</p>
-          <p>Don't miss trying a hot dog from a street vendor or enjoying a slice of cheesecake in this food lover's paradise.</p>
+        <div class="tab-content editable" data-index="1">
+            <div class="edit-controls">
+                <button class="save-button" onclick="saveChanges(1)">Save</button>
+            </div>
+            <h2>Diverse Cuisine in New York City</h2>
+            <img src="assets/cuisine_newyork.jpg" alt="Cuisine Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
+            <p>Indulge in the diverse culinary scene of New York City. From classic New York-style pizza to international cuisine, the city offers a gastronomic adventure. Explore food markets, trendy cafes, and Michelin-starred restaurants.</p>
+            <p>Don't miss trying a hot dog from a street vendor or enjoying a slice of cheesecake in this food lover's paradise.</p>
         </div>
 
-        <div class="tab-content">
-          <h2>Getting Around in New York City</h2>
-          <img src="assets/transportation_newyork.jpg" alt="Transportation Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
-          <p>Navigate the bustling streets of New York City using its extensive transportation network. Hop on the iconic yellow cabs, ride the efficient subway system, or take a scenic stroll through neighborhoods.</p>
-          <p>Explore the unique character of each borough and enjoy the convenience of public transportation for your New York adventure.</p>
+        <div class="tab-content editable" data-index="2">
+            <div class="edit-controls">
+                <button class="save-button" onclick="saveChanges(2)">Save</button>
+            </div>
+            <h2>Getting Around in New York City</h2>
+            <img src="assets/transportation_newyork.jpg" alt="Transportation Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
+            <p>Navigate the bustling streets of New York City using its extensive transportation network. Hop on the iconic yellow cabs, ride the efficient subway system, or take a scenic stroll through neighborhoods.</p>
+            <p>Explore the unique character of each borough and enjoy the convenience of public transportation for your New York adventure.</p>
         </div>
 
-        <div class="tab-content">
-          <h2>Staying Connected in New York</h2>
-          <img src="assets/telecommunication_newyork.jpg" alt="Telecommunication Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
-          <p>Stay connected while exploring the city that never sleeps. New York City provides widespread Wi-Fi coverage in public areas, parks, and cafes. Purchase a local SIM card for your phone for seamless communication during your stay.</p>
-          <p>Enjoy the connectivity and capture every moment of your New York adventure.</p>
+        <div class="tab-content editable" data-index="3">
+            <div class="edit-controls">
+                <button class="save-button" onclick="saveChanges(3)">Save</button>
+            </div>
+            <h2>Staying Connected in New York</h2>
+            <img src="assets/telecommunication_newyork.jpg" alt="Telecommunication Image" style="width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 20px;">
+            <p>Stay connected while exploring the city that never sleeps. New York City provides widespread Wi-Fi coverage in public areas, parks, and cafes. Purchase a local SIM card for your phone for seamless communication during your stay.</p>
+            <p>Enjoy the connectivity and capture every moment of your New York adventure.</p>
         </div>
     </div>
 
@@ -346,28 +402,26 @@
 
   <script>
     function changeTab(index) {
-        var tabs = document.querySelectorAll('.tab');
-        var tabContents = document.querySelectorAll('.tab-content');
+    var tabs = document.querySelectorAll('.tab');
+    var tabContents = document.querySelectorAll('.tab-content');
 
-        tabContents.forEach(function (content) {
-            content.style.display = 'none';
-        });
+    tabContents.forEach(function (content) {
+        content.style.display = 'none';
+    });
 
-        tabs.forEach(function (tab) {
-            tab.classList.remove('active');
-        });
+    tabs.forEach(function (tab) {
+        tab.classList.remove('active');
+    });
 
-        tabContents[index].style.display = 'block';
+    tabContents[index].style.display = 'block';
 
-        tabs[index].classList.add('active');
+    tabs[index].classList.add('active');
     }
 
     function toggleLike(button) {
         button.classList.toggle('active');
     }
 
-
-    // Function to show the post form
     function showPostForm() {
         var postForm = document.getElementById('postForm');
         var addPostButton = document.querySelector('.add-post-button');
@@ -376,16 +430,13 @@
         addPostButton.style.display = 'none';
     }
 
-    // Function to add a new post
     function addNewPost() {
         var postContent = document.getElementById('postContent').value;
 
         if (postContent.trim() !== '') {
-            // Create a new post element
             var newPost = document.createElement('div');
             newPost.classList.add('community-post');
 
-            // Add post content
             newPost.innerHTML = `
                 <span class="post-author">New User:</span>
                 <div class="post-content">
@@ -399,30 +450,57 @@
                 </div>
             `;
 
-            // Append the new post to the community section
             var communitySection = document.querySelector('.community-section');
             communitySection.appendChild(newPost);
 
-            // Hide the form after submission
             var postForm = document.getElementById('postForm');
             postForm.style.display = 'none';
 
-            // Show the "Add New Post" button again
             var addPostButton = document.querySelector('.add-post-button');
             addPostButton.style.display = 'block';
 
-            // Clear the textarea
             document.getElementById('postContent').value = '';
         }
     }
 
-    // Function to get the current date in the format "Month Day, Year"
     function getCurrentDate() {
         var options = { year: 'numeric', month: 'long', day: 'numeric' };
         return new Date().toLocaleDateString('en-US', options);
     }
 
+    function enableEditing() {
+        var editableItems = document.querySelectorAll('.editable');
+        editableItems.forEach(function (item) {
+            var content = item.innerHTML;
+            var input = document.createElement('textarea');
+            input.value = content;
+            var controls = document.createElement('div');
+            controls.classList.add('edit-controls');
+            var saveButton = document.createElement('button');
+            saveButton.classList.add('save-button');
+            saveButton.textContent = 'Save';
+            saveButton.onclick = function () {
+                saveChanges(item.dataset.index);
+            };
+            controls.appendChild(saveButton);
+            item.innerHTML = '';
+            item.appendChild(input);
+            item.appendChild(controls);
 
+            controls.style.display = 'flex';
+        });
+    }
+
+    function saveChanges(index) {
+        var editableItems = document.querySelectorAll('.editable');
+        var editedContent = editableItems[index].querySelector('textarea').value;
+        editableItems[index].innerHTML = editedContent;
+
+        var editControls = editableItems[index].querySelector('.edit-controls');
+        if (editControls) {
+            editControls.style.display = 'none';
+        }
+    }
   </script>
 
 </body>
