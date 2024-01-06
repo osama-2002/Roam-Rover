@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roam Rover</title>
+    <style>
+    html, body {
+        height: 100%;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f8f8;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-image: url('assets/BG\ img.jpg');
+        background-size: cover;
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    header {
+        background-color: #008080;
+        color: #fff;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .header-content {
+        text-align: center;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
+    header .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    header .logo img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        margin-right: 10px;
+        margin-left: 50px;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 2rem;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        font-weight: bold;
+    }
+    header a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+        font-size: 1rem;
+        padding: 5px 10px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+    }
+    header a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    header a:nth-child(2),
+    header a:nth-child(3) {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+
+    main {
+        color: #333;
+        padding: 20px;
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+        margin-top: 5%;
+    }
+    .search-bar {
+      text-align: center;
+      margin-top: 40px;
+    }
+    label {
+      font-size: 36px;
+      color: #008080;
+      font-weight: bold;
+    }
+    input {
+      padding: 12px;
+      font-size: 18px;
+      width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #008080;
+      color: #fff;
+      padding: 15px;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #006666;
+    }
+    h3 {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 24px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    li {
+      width: 250px;
+      padding: 15px;
+      margin: 15px;
+      background-color: #ccffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+      text-align: center;
+      font-size: 18px;
+      overflow: hidden;
+    }
+    li:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      background-color: #b3ffff;
+    }
+    .destination-link {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+    .destination-icon {
+    width: 100px;
+    height: 100px;
+    background-color: #ccffff;
+    border-radius: 10px;
+    margin-bottom: 10px; 
+    }
+    .destination-icon img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+    .destination-link li {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    footer {
+        background-color: #008080;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+    footer .copyright {
+        font-size: 14px;
+        color: #fff;
+    }
+    footer .info {
+        margin-top: 10px;
+    }
+    footer .info p {
+        font-size: 12px;
+        color: #fff;
+    }
+    </style>
+    <script>
+        function search() {
+          var destination = document.getElementById('search').value.toLowerCase();
+    
+          if (destination === 'new york') {
+            window.location.href = 'newYork.html';
+          } else if (destination === 'tokyo') {
+            window.location.href = 'tokyo.html';
+          } else if (destination == "paris") {
+            window.location.href = 'paris.html';
+          } else {
+            alert('Invalid destination. Please try again.');
+          }
+        }
+    </script>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="assets/logo-small.jpg" alt="Logo">
+    </div>
+    <div class="header-content">
+        <h1>Roam Rover</h1>
+    </div>
+    <div>
+      <a href="index.html">Logout</a>
+      <a href="settings.html">Settings</a>
+    </div>
+    <img src="assets/traveler.jpg" alt="User Profile" style="width: 42px; height: 42px; border-radius: 50%;">
+  </header>
+
+  <main>
+    <div class="search-bar">
+      <label for="search">
+        <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Where to?</h1>
+    </label>
+      <input type="text" id="search" name="search" placeholder="Enter your destination">
+      <button type="button" onclick="search()">Search</button>
+    </div>
+
+    <h3>Most Visited Destinations This Month:</h3>
+    <ul>
+        <li>
+          <a href="paris.html" class="destination-link" target="_blank">
+            <div class="destination-icon">
+              <img src="assets/paris.jpg" alt="Paris">
+            </div>
+            <span>Paris, France</span>
+          </a>
+        </li>
+        <li>
+          <a href="tokyo.html" class="destination-link" target="_blank">
+            <div class="destination-icon">
+              <img src="assets/tokyo.jpg" alt="Tokyo">
+            </div>
+            <span>Tokyo, Japan</span>
+          </a>
+        </li>
+        <li>
+          <a href="newYork.html" class="destination-link" target="_blank">
+            <div class="destination-icon">
+              <img src="assets/new york.jpg" alt="New York">
+            </div>
+            <span>New York City, USA</span>
+          </a>
+        </li>
+      </ul>
+      
+  </main>
+  
+  <footer>
+    <div class="copyright">
+      &copy; 2024 RoamRover. All Rights Reserved.
+    </div>
+    <div class="info">
+      <p>Contact Us! info@roamrover.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>
